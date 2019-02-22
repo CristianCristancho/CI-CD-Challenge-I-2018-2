@@ -1,4 +1,8 @@
 pipeline {
+	environment{
+		DockerUser = credentials('DockerUser')
+		DockerPass = credentials('DockerPass')
+	}
 	agent any         
 		stages {                 
 			stage('Prepare') {                         
@@ -21,9 +25,7 @@ pipeline {
 			stage('push') {
 				steps {
 					echo 'pushing'
-					withCredentials([usernameColonPassword(credentialsId: 'ae6de152-f4b5-49e5-8f19-264f76b8bbf6', variable: 'dockerhub')]) {
-						sh 'winpty docker login'
-					}
+					sh 'docker login -u $DockerUser -p $DockerPass'
 					sh 'docker tag challengejenkins:latest cristiancristancho/challengejenkins:latest'
 					sh 'docker push cristiancristancho/challengejenkins:latest'
 

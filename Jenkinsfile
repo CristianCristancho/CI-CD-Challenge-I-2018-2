@@ -15,8 +15,7 @@ pipeline {
 			stage('Test') {                         
 				steps {                                 
 					echo 'Testing...'  
-					sh 'docker run -d jenkchall npm start '
-					sh 'docker run jenkchall npm test '                         
+					sh 'docker run -d jenkchall npm test'                        
 				}                 
 			}
 			stage('push') {

@@ -9,12 +9,13 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker build .'                         
+					sh 'docker build -t jenkchall'                         
 				}                 
 			}                 
 			stage('Test') {                         
 				steps {                                 
-					echo 'Testing...'                        
+					echo 'Testing...'  
+					sh 'docker run jenkchall npm start npm test'                         
 				}                 
 			}
 			stage('push') {

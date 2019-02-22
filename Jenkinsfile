@@ -21,7 +21,7 @@ pipeline {
 			stage('push') {
 				steps {
 					echo 'pushing'
-					withCredentials([usernameColonPassword(credentialsId: '755fbb27-d3be-40c6-9af4-430379b9f94a', variable: 'Credentials')]) {
+					withCredentials([usernameColonPassword(credentialsId: 'ae6de152-f4b5-49e5-8f19-264f76b8bbf6', variable: 'DockerHub')]) {
 						sh 'docker login'
 					}
 					sh 'docker tag challengejenkins:latest cristiancristancho/challengejenkins:latest'

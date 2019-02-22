@@ -34,11 +34,11 @@ pipeline {
 			stage('Deploy') {                         
 				steps {                                 
 					echo 'Deploying....'  
-					sh 'docker rm -f challengejenkins'
+					
 					input 'Start deployment? '
-					sh 'docker run -d -p 8000:8000 challengejenkins npm start'  
+					sh 'docker run -d -p 8000:8000 challengejenkins npm start -t jenkCont'  
 					input 'Finish deployment? '
-					sh 'docker stop challengejenkins'                                 					
+					sh 'docker stop jenkCont'                                 					
 				}                 
 			}         
 		} 

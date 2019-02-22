@@ -9,7 +9,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker build . -t jenkchall'                         
+					sh 'docker build --rm . -t jenkchall'                         
 				}                 
 			}                 
 			stage('Test') {                         
@@ -21,6 +21,8 @@ pipeline {
 			stage('push') {
 				steps {
 					echo 'pushing'
+					
+					
 				}
 			}                 
 			stage('Deploy') {                         

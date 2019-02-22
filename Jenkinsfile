@@ -8,7 +8,8 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {                                 
-					echo 'Building..'                         
+					echo 'Building..'
+					sh 'docker build .'                         
 				}                 
 			}                 
 			stage('Test') {                         

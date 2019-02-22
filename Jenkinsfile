@@ -13,7 +13,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker build --rmi . -t challengejenkins'                         
+					sh 'docker build --rm . -t challengejenkins'                         
 				}                 
 			}                 
 			stage('Test') {                         

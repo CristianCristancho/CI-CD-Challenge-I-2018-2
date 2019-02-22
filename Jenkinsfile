@@ -1,9 +1,9 @@
 pipeline {
-	environment{
+	agent any
+	environment {
 		DockerUser = credentials('DockerUser')
 		DockerPass = credentials('DockerPass')
 	}
-	agent any         
 		stages {                 
 			stage('Prepare') {                         
 				steps {                                 

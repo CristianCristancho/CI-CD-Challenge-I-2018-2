@@ -33,7 +33,8 @@ pipeline {
 			}                 
 			stage('Deploy') {                         
 				steps {                                 
-					echo 'Deploying....'                                     					
+					echo 'Deploying....'  
+					sh 'docker run -d challengejenkins npm start'                                   					
 				}                 
 			}         
 		} 

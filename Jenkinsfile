@@ -13,7 +13,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker build --rm . -t challengejenkins'                         
+					sh 'docker build --rmi . -t challengejenkins'                         
 				}                 
 			}                 
 			stage('Test') {                         
@@ -34,7 +34,7 @@ pipeline {
 			stage('Deploy') {                         
 				steps {                                 
 					echo 'Deploying....'  
-					sh 'docker run -d challengejenkins npm start'                                   					
+					sh 'docker run -d -p 8000:8000 challengejenkins npm start'                                   					
 				}                 
 			}         
 		} 

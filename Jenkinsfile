@@ -8,12 +8,12 @@ pipeline {
 			stage('Prepare') {                         
 				steps {                                 
 					echo 'Preparing..'
-					sh 'docker kill jenkCont'
 				}                 
 			}                 
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
+					sh 'docker kill jenkCont'
 					sh 'docker build --rm . -t challengejenkins'                         
 				}                 
 			}                 

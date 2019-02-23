@@ -35,6 +35,7 @@ pipeline {
 				steps {                                 
 					echo 'Deploying....'  
 					input 'Accept deployment?'
+					sh 'docker stop $(docker ps -aq)'
 					sh 'docker rm $(docker ps -aq)'
 					sh 'docker run -d -p 8000:8000 challengejenkins'  
                                  					

@@ -8,6 +8,7 @@ pipeline {
 			stage('Prepare') {                         
 				steps {                                 
 					echo 'Preparing..'
+					sh 'docker kill jenkCont'
 				}                 
 			}                 
 			stage('Build') {                         

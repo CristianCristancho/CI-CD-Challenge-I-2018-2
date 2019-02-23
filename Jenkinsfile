@@ -13,7 +13,6 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker kill jenkCont'
 					sh 'docker build --rm . -t challengejenkins'                         
 				}                 
 			}                 
@@ -37,7 +36,7 @@ pipeline {
 					echo 'Deploying....'  
 					
 					input 'Accept deployment? '
-					sh 'docker run -d -p 8000:8000 --name jenkCont challengejenkins'  
+					sh 'docker run -d -p 8000:8000 challengejenkins'  
                                  					
 				}                 
 			}         

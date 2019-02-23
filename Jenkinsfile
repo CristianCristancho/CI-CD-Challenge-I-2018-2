@@ -35,10 +35,9 @@ pipeline {
 				steps {                                 
 					echo 'Deploying....'  
 					
-					input 'Start deployment? '
-					sh 'docker run -d -p 8000:8000 challengejenkins npm start --name jenkCont'  
-					input 'Finish deployment? '
-					sh 'docker stop jenkCont'                                 					
+					input 'Accept deployment? '
+					sh 'docker run -d -p 8000:8000 --name jenkCont challengejenkins'  
+                                 					
 				}                 
 			}         
 		} 

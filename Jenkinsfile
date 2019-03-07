@@ -14,13 +14,13 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker build --rm . -t challengejenkins:new'                         
+					sh 'docker build --rm . -t challengejenkins'                         
 				}                 
 			}                 
 			stage('Test') {                         
 				steps {                                 
 					echo 'Testing...'  
-					sh 'docker run challengejenkins:new npm test'                        
+					sh 'docker run --name challjenkNew -d challengejenkins npm test'                        
 				}                 
 			}
 			/*
@@ -39,7 +39,7 @@ pipeline {
 					input 'check new version?'
 					//sh 'docker stop $(docker ps -aq)'
 					//sh 'docker rm $(docker ps -aq)'
-					sh 'docker run -d -p 8050:8000 challengejenkins:new'  
+					sh 'docker run --name challjenkNew -d -p 8050:8000 challengejenkins'  
                                  					
 				}                 
 			}                  
@@ -48,10 +48,10 @@ pipeline {
 					echo 'Deploying....'  
 					input 'Accept deployment?'
 					//sh 'docker stop $(docker ps -aq)'
-					sh 'docker stop challengejenkins:new'
-					sh 'docker rename challengejenkins:new challengejenkins:actual'
-					sh 'docker rm challengejenkins:new'
-					sh 'docker run -d -p 8000:8000 challengejenkins:actual'  
+					sh 'docker stop challjenkNew'
+					sh 'docker rename challjenkNew challjenk'
+					sh 'docker rm challjenkNew'
+					sh 'docker run --name challjenk -d -p 8000:8000 challengejenkins'  
                                  					
 				}                 
 			}         

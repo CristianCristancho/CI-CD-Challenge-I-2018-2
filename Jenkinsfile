@@ -51,11 +51,11 @@ pipeline {
 					input 'Accept deployment?'
 					//sh 'docker stop $(docker ps -aq)'
 					sh 'docker stop challjenkNew'
-					//sh 'docker commit challjenkNew challjenkimg'
+					sh 'docker commit challjenkNew challjenkimg'
 					//sh 'docker rm challjenkNew'
 					sh 'docker rename challjenkNew challjenk'
 					//sh 'docker rm challjenkNew'
-					sh 'docker run -d -p 8000:8000 --name challjenk' 
+					sh 'docker run -d -p 8000:8000 --name challjenk challjenkimg' 
                                  					
 				}                 
 			}         

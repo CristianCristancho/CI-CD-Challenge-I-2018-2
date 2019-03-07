@@ -50,9 +50,9 @@ pipeline {
 					echo 'Deploying....'  
 					input 'Accept deployment?'
 					//sh 'docker stop $(docker ps -aq)'
-					sh 'docker stop challjenk challjenkNew'
-					sh 'docker rm challjenk'
-					//sh 'docker rename challjenk challjenk'
+					sh 'docker stop challjenkNew'
+					//sh 'docker rm challjenk'
+					sh 'docker rename challjenkNew challjenk'
 					//sh 'docker rm challjenkNew'
 					sh 'docker run --name challjenk -d -p 8000:8000 challengejenkins'  
                                  					

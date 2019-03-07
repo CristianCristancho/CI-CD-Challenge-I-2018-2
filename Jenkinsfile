@@ -14,7 +14,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'if [ "$(docker images ${reg} -q)" != "" ]; then docker rmi -f $(docker images ${reg} -q --no-trunc); fi'
+					//sh 'if [ "$(docker images ${reg} -q)" != "" ]; then docker rmi -f $(docker images ${reg} -q --no-trunc); fi'
 					sh 'docker build --rm . -t challengejenkins:${BUILD_NUMBER}'                         
 				}                 
 			}                 

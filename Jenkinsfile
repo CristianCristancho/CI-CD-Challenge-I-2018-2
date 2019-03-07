@@ -54,7 +54,7 @@ pipeline {
 					//sh 'docker rm challjenk'
 					//sh 'docker rename challjenkNew challjenk'
 					//sh 'docker rm challjenkNew'
-					sh 'docker run challjenk -d -p 8000:8000 challengejenkins'  
+					sh 'docker run --name challjenk -d -p 8000:8000 challengejenkins'  
                                  					
 				}                 
 			}         

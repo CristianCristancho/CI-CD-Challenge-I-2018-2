@@ -41,7 +41,7 @@ pipeline {
 					//sh 'docker stop $(docker ps -aq)'
 					//sh 'docker rm $(docker ps -aq)'
 					//sh 'docker rmi $( docker images | grep "^<none>" | awk "{print $3}" )'
-					sh 'docker run --name challjenkNew -d -p 9000:8000 challengejenkins'  
+					sh 'docker run --name challjenkNew -d -p 8001:8000 challengejenkins'  
                                  					
 				}                 
 			}                  
@@ -53,6 +53,7 @@ pipeline {
 					sh 'docker stop challjenkNew'
 					sh 'docker rename challjenkNew challjenk'
 					//sh 'docker rm challjenkNew'
+					sh 'docker stop challjenk'
 					sh 'docker run --name challjenk -d -p 8000:8000 challengejenkins'  
                                  					
 				}                 

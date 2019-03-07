@@ -41,7 +41,7 @@ pipeline {
 					//sh 'docker stop $(docker ps -aq)'
 					//sh 'docker rm $(docker ps -aq)'
 					//sh 'docker rmi $( docker images | grep "^<none>" | awk "{print $3}" )'
-					sh 'docker run --name challjenkNew -d -p 8001:8000 challengejenkins'  
+					sh 'docker run --name challjenkNew -d -p 8010:8000 challengejenkins'  
                                  					
 				}                 
 			}                  
@@ -50,7 +50,8 @@ pipeline {
 					echo 'Deploying....'  
 					input 'Accept deployment?'
 					//sh 'docker stop $(docker ps -aq)'
-					sh 'docker stop challjenkNew'
+					sh 'docker stop challjenk challjenkNew'
+					sh 'docker rm challjenk'
 					sh 'docker rename challjenkNew challjenk'
 					//sh 'docker rm challjenkNew'
 					sh 'docker stop challjenk'

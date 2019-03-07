@@ -14,7 +14,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					echo 'Building..'
-					sh 'docker rmi $(docker images -a|grep "<none>"|awk '$1=="<none>" {print $3}')'
+					sh 'docker rmi $(docker images -a|grep "<none>"|awk "$1=="<none>" {print $3}")'
 					sh 'docker build --rm . -t challengejenkins'                         
 				}                 
 			}                 

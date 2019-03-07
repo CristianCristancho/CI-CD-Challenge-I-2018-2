@@ -39,7 +39,7 @@ pipeline {
 					input 'check new version?'
 					//sh 'docker stop $(docker ps -aq)'
 					//sh 'docker rm $(docker ps -aq)'
-					sh 'docker rmi $(docker images | grep "^<none>" | awk "{print $3}"'
+					sh 'docker rmi $(docker images | grep "^<none>" | awk '{print $3}')'
 					sh 'docker run --name challjenkNew -d -p 8050:8000 challengejenkins'  
                                  					
 				}                 

@@ -51,7 +51,7 @@ pipeline {
 					input 'Accept deployment?'
 					//sh 'docker stop $(docker ps -aq)'
 					sh 'docker stop challjenkNew'
-					sh 'docker run --name challjenk -d -p 8000:8000 challengejenkins:latest'
+					sh 'docker run --name challjenk -d -p 8000:8000 cristiancristancho/challengejenkins:latest'
                                  					
 				}                 
 			}         

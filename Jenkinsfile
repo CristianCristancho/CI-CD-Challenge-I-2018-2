@@ -41,7 +41,7 @@ pipeline {
 					//sh 'docker stop $(docker ps -aq)'
 					//sh 'docker rm $(docker ps -aq)'
 					//sh 'docker rmi $( docker images | grep "^<none>" | awk "{print $3}" )'
-					sh 'docker run --rm --name challjenkNew -d -p localhost:8010:8000 challengejenkins'  
+					sh 'docker run --rm --name challjenkNew -d -p 127.0.0.1:8010:8000 challengejenkins'  
                                  					
 				}                 
 			}                  
